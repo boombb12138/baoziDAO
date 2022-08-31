@@ -1,20 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
-// Import thirdweb provider and Rinkeby ChainId
-import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+// 导入 thirdweb provider 和 Rinkeby ChainId
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
-// This is the chainId your dApp will work on.
-const activeChainId = ChainId.Rinkeby;
+// 指定我们构建的 dApp运行在哪条链上.
+const activeChainId = ChainId.Mumbai;
 
-// Wrap your app with the thirdweb provider
+// 用thirdweb provider将App包裹起来
+// 目的：1.保存用户的钱包数据（如果它们之前登录过）
+//       2.将数据传递给App
 ReactDOM.render(
   <React.StrictMode>
     <ThirdwebProvider desiredChainId={activeChainId}>
       <App />
     </ThirdwebProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById("root")
 );
